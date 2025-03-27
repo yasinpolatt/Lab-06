@@ -1,6 +1,6 @@
 import math
 def factorial(x):
-    if x==1:
+    if x==0 or x==1:
         return 1;
     return x * factorial(x-1)
 
@@ -24,19 +24,24 @@ def sine_x(x,n):
 x = int(input("Enter the x value : "))
 n = int(input("Enter the n value : "))
 print(sine_x(x,n))
+print("*************************************")
 
+value = 0
 
 def func3(n):
     """
-     function  take “n” as a parameter and obey the formula.
+This function about summotion and obey the rules.
     """
-    toplam = 0
-    while(n!=0):
-        toplam += 1/n
-        n-=1
-    print("Total : " + str(toplam))
+    global value
+    if n == 1:
+        value += 1
+        return
+    value += 1 / n
+    func3(n - 1)
 
 
+func3(2)
+print(value)
 
-func3(5)
+
 print(func3.__doc__)
